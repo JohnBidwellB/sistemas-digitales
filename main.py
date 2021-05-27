@@ -6,7 +6,7 @@ from random import seed, randint, choice, choices
 seed(1)
 
 DICTIONARY = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-SIZE = 1
+SIZE = 4
 
 # Busca las posiciones de los bits de paridad
 def autocomplete(file):
@@ -115,7 +115,6 @@ def decode_file(file):
 				break       
 			related_columns = search_related_columns(rows, wrong_files)
 			for i in related_columns:
-				print(i)
 				temp_file = original_autocompleted_string
 				if autocompleted_string[i] == "0":
 					autocompleted_string = temp_file[:i] + "1" + temp_file[i+1:]
@@ -124,7 +123,6 @@ def decode_file(file):
 					autocompleted_string = temp_file[:i] + "0" + temp_file[i+1:]
 					break
 		file_without_errors += clean_file(autocompleted_string)
-	print(file_without_errors)
 	return file_without_errors
 
 # Genera un archivo de texto con caracteres al azar
